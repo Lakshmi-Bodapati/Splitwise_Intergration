@@ -27,9 +27,3 @@ variable "Place-to-insert" {
     type = string
     description = "Coloum to insert the value"
 }
-
-
-
-
-
-
