@@ -46,13 +46,9 @@ data "aws_iam_policy_document" "lambda_policy" {
     effect    = "Allow"
     actions   = [
       "ssm:GetParameter",
-      "ssm:GetParameterHistory",
-      "ssm:GetParameters",
-      "ssm:GetParametersByPath",
-      "ssm:GetParameter*",
     ]
     resources = [
-      "arn:aws:ssm:eu-west-2:742274985298:parameter/${aws_ssm_parameter.split_api_key.name}"
+      "arn:aws:ssm:eu-west-2:742274985298:parameter${aws_ssm_parameter.split_api_key.name}"
     ]
   }
 }
