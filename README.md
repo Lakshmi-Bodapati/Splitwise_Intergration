@@ -10,6 +10,7 @@ This Code base allows you to post your total balance in your Splitwise account i
     | Bucket  | Give Name to the bucket which will get created by terraform|
     | Bucket_key  | Name of the JSON File that should be uploaded. Follow step 2 for JSON file| 
     | CRON | Provide CRON JOB to run lambda in specified intervals |
+    | split-key | Key can be obtained by following this Document https://dev.splitwise.com/#section/Authentication |
     | Gsheet-name | Name of the G-Sheet |
     | Place-to-insert  | Enter Cell at which value from splitwise should appear in G-Sheet |
 2. Folow the steps from this Document (https://www.geeksforgeeks.org/how-to-automate-google-sheets-with-python/) until downloading keys in JSON File, Add that Json file in your working directory.
