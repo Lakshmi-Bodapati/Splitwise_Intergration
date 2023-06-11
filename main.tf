@@ -4,6 +4,11 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 
+
+resource "aws_s3_bucket" "terraform-state-storage-s3" {
+  bucket = var.State-Bucket
+}
+
 resource "aws_cloudwatch_event_rule" "invoke_lambda" {
   name        = "Invoke-Lambda"
   description = "Need to trigger lambda wrt cron"
@@ -14,7 +19,6 @@ resource "aws_cloudwatch_event_rule" "invoke_lambda" {
 resource "aws_cloudwatch_event_target" "Attaching_Splitwise_lambda" {
   target_id = "Splitwise_Lambda"
   rule      = aws_cloudwatch_event_rule.invoke_lambda.name
-
   arn = aws_lambda_function.Splitwise_Lambda.arn
 }
 

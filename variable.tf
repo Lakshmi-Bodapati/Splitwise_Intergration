@@ -32,3 +32,8 @@ variable "Place-to-insert" {
     type = string
     description = "Coloum to insert the value"
 }
+
+variable "State-Bucket" {
+    type = string
+    description = "Terraform state bucket in S3"
+}
