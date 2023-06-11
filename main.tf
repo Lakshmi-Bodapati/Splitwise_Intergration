@@ -1,6 +1,8 @@
 provider "aws" {
-    region = "eu-west-2"
+    region = var.Region
 }
+
+data "aws_caller_identity" "current" {}
 
 resource "aws_cloudwatch_event_rule" "invoke_lambda" {
   name        = "Invoke-Lambda"
@@ -48,7 +50,7 @@ data "aws_iam_policy_document" "lambda_policy" {
       "ssm:GetParameter",
     ]
     resources = [
-      "arn:aws:ssm:eu-west-2:742274985298:parameter${aws_ssm_parameter.split_api_key.name}"
+      "arn:aws:ssm:${var.Region}:${data.aws_caller_identity.current.account_id}:parameter${aws_ssm_parameter.split_api_key.name}"
     ]
   }
 }

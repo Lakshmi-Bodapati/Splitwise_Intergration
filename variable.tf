@@ -1,3 +1,8 @@
+variable "Region" {
+  type = string
+  description = "Region for this infra"
+}
+
 variable "Bucket" {
   type = string
   description = "Enter Name of Bucket which has gsheets JSON File"
