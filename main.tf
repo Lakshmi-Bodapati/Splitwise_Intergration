@@ -2,6 +2,14 @@ provider "aws" {
     region = var.Region
 }
 
+terraform {
+  backend "s3" {
+    bucket = "lakshmi-terraform-state-s3"
+    key    = "Split-integratin/state"
+    region = "eu-west-2"
+  }
+}
+
 data "aws_caller_identity" "current" {}
 
 
