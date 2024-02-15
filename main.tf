@@ -4,9 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "lakshmi-terraform-state-s3"
     key    = "Split-integratin/state"
-    region = "eu-west-2"
   }
 }
 
