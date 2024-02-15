@@ -19,7 +19,10 @@ def Balance():
     all_balances = []
     for ids in range(len(list_of_ids)):
         a_friend = get_the_info("https://secure.splitwise.com/api/v3.0/get_friend/{}".format(list_of_ids[ids]))
-        all_balances.append(float(a_friend['friend']['balance'][0]['amount']))
+        if not a_friend['friend']['balance'] :
+            pass
+        else:
+            all_balances.append(float(a_friend['friend']['balance'][0]['amount']))
     return all_balances
 
 def lambda_handler(event, context):
